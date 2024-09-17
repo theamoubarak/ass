@@ -13,7 +13,7 @@ df = pd.read_csv("datas.csv")
 # 1. Bar Chart: Percentage of Women in Lebanese Villages
 st.title("Percentage of Women in Lebanese Villages")
 
-p1 = go.Bar(x=df['Village'], y=df['Women_Percentage'])
+p1 = go.Bar(x=df['Town'], y=df['Percentage_of_women'])
 layout = go.Layout(
     yaxis=dict(range=[0, 100]),
     title='Bar Graph showing the Percentage of Women Within Lebanese Villages'
@@ -43,11 +43,11 @@ else:
 
 # 3. Bubble Chart: Percentage of Elderly and Youth Population based on Percentage of Women
 # Ensure the necessary columns exist in the dataframe
-if all(col in df.columns for col in ['Percentage_Elderly', 'Percentage_Youth', 'Population_Size', 'Percentage_Women', 'Village']):
-    x = df['Percentage_Elderly']
-    y = df['Percentage_Youth']
+if all(col in df.columns for col in ['Percentage_of_Elderly', 'Percentage_of_Youth', 'Population_Size', 'Percentage_of_women', 'Town']):
+    x = df['Percentage_of_Elderly']
+    y = df['Percentage_of_Youth']
     size = df[df['Population_Size'] <= 100]['Population_Size']  # Size based on population <= 100
-    color = df['Percentage_Women']
+    color = df['Percentage_of_Women']
 
     p3 = go.Scatter(
         x=x,
@@ -77,10 +77,10 @@ else:
 
 # 4. Scatter Plot: % Men vs % Women in Villages
 # Ensure the necessary columns exist
-if all(col in df.columns for col in ['Men_Percentage', 'Women_Percentage', 'Village']):
+if all(col in df.columns for col in ['Percentage_of_men', 'Percentage_ofwomen', 'Town']):
     men = df['Men_Percentage']
-    women = df['Women_Percentage']
-    cities = df['Village']
+    women = df['Percentage_of_women']
+    cities = df['Town']
 
     # Scatter plot
     fig = go.Figure()
