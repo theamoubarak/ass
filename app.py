@@ -8,7 +8,7 @@ st.title("% of Men and Women in Lebanon")
 
 # Load the data
 # path = "https://linked.aub.edu.lb/pkgcube/data/6ccc6616fbb484c599a4cc560b934c25_20240906_090000.csv"
-df = pd.read_excel("datas.xlsx")
+df = pd.read_csv("datas.csv")
 
 # 1. Bar Chart: Percentage of Women in Lebanese Villages
 st.title("Percentage of Women in Lebanese Villages")
